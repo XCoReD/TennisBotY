@@ -26,4 +26,4 @@ class Chat:
 
     def get_admins(self, prefix_if_multiple = None):
         admins = list(filter(lambda u: u.status is Chatuser.ADMIN, self.users))
-        return prefix_if_multiple + ','.join(map(lambda user: '@' + user.name, admins)) if len(admins) > 1 else ( '@' + admins[0].name if len(admins) == 1 else '(не нашел)')
+        return prefix_if_multiple + ','.join(map(lambda user: '@' + user.name, admins)) if len(admins) > 1 else ( ('@' + admins[0].name) if len(admins) == 1 else '(not found)')
