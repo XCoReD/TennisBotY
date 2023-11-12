@@ -4,7 +4,7 @@ from yesno import YesNo
 
 class Chatuser:
 
-    NEW, TRUSTED, ADMIN, SUPERADMIN, BOT = range(5)
+    NEW, VALIDATING, TRUSTED, ADMIN, SUPERADMIN, BOT = range(6)
 
     #the attributes must be declared for serializaton
     status : range

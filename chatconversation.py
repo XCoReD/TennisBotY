@@ -560,7 +560,7 @@ class ChatConversation:
     async def game_close_registration(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """callback to close the registration to the game"""
         self.competition.close()
-        self.persistency.save(ChatPersistency.COMPETITION)
+        self.persistency.save_competition()
         text=_("Registration is closed. Date: ") + self.competition.get_date_str() + "\n\n" + self.competition.get_report()
         await context.bot.send_message(chat_id=self.chat_id, text=text)
 
@@ -890,7 +890,7 @@ class ChatConversation:
                 await self.start(update, context)
         
         if registered:
-            self.persistency.save(ChatPersistency.COMPETITION)
+            self.persistency.save_competition()
             await update.message.reply_text(self.competition.get_report())
 
     def run(self):
